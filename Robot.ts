@@ -133,8 +133,8 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //  blockId=setServo block="Servo LowR:0 LowL:1 HighR:2 HighL:3 %channel|degree:-45Å`45 %degree"
-    //% blockId=setServo block="Servo FrontR:0 FrontL:1 RearR:2 RearL:3 %channel|degree:0Å`180 %degree"
+    //  blockId=setServo block="Servo LowR:0 LowL:1 HighR:2 HighL:3 %channel|degree:-45<=>5 %degree"
+    //% blockId=setServo block="Servo FrontR:0 FrontL:1 RearR:2 RearL:3 %channel|degree:0<=>180 %degree"
     //% weight=85
     //% channel.min=0 channel.max=3
     //% degree.min=0 degree.max=180
@@ -150,7 +150,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setLED block="LED Red:0 Yellow:1 Green:2 Blue:3 %channel|voltage:0Å`100 %voltage"
+    //% blockId=setLED block="LED Red:0 Yellow:1 Green:2 Blue:3 %channel|voltage:0<=>100 %voltage"
     //% weight=85
     //% channel.min=0 channel.max=3
     //% voltage.min=0 voltage.max=100
