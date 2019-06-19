@@ -1,5 +1,6 @@
 {
 	"Robot|block": "ロボット",
+	"Insect.radio|block": "無線グループ：No, 0～83 %n",
 	"Robot.Motor|block": "モータ 右:0 左:1 %channel|後方<=>前方:-100<=>100 %voltage",
 	"Robot.Servo|block": "サーボ 右前:0 左前:1 右後:2 左後:3 %channel|角度:0～180 %degree",
 	"Robot.LED|block": "LED 赤:0 黄:1 緑:2 青:3 %channel|電圧:0～100 %voltage"
