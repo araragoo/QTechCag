@@ -123,6 +123,13 @@ namespace Robot {
         pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
     }
 
+    //  subcategory="Robot"
+    //% blockId=setRadio block="radio Group:1<=>83 %n"
+    //% weight=85
+    //% n.min=1 n.max=83
+    export function radioGroup(n: number): void {
+        radio.setGroup(n)
+    }
 
     //  subcategory="Robot"
     //% blockId=setMortor block="Motor Right:0 Left:1 %channel|BWD<=>FWD:-100<=>100 %voltage"
