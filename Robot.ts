@@ -124,8 +124,6 @@ namespace Robot {
     }
 
 
-
-
     //  subcategory="Robot"
     //% blockId=setMortor block="Motor Right:0 Left:1 %channel|BWD<=>FWD:-100<=>100 %voltage"
     //% weight=85
