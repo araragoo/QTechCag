@@ -159,9 +159,9 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setLED block="LED Red:0 Yellow:1 Green:2 Blue:3 %channel|voltage:0<=>100 %voltage"
+    //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
     //% weight=85
-    //% channel.min=0 channel.max=3
+    //% channel.min=0 channel.max=2
     //% voltage.min=0 voltage.max=100
     export function LED(channel: number,voltage: number): void {
         if (!initialized) {
