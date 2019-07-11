@@ -142,7 +142,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //  blockId=setServo block="Servo LowR:0 LowL:1 HighR:2 HighL:3 %channel|degree:-45<=>45 %degree"
-    //% blockId=setServo block="Servo Waist:0 FrontR:1 FrontL:2 RearR:3 RearL:4 %channel|degree:0<=>180 %degree"
+    //% blockId=setServo block="Servo Waist:0 FrontR:1 FrontL:2 RearR:3 RearL:4 %channel|degree:-90<=>90 %degree"
     //% weight=85
     //% channel.min=0 channel.max=4
     //% degree.min=0 degree.max=180
@@ -150,9 +150,17 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        let v_us = (degree * 95 / 9 + 500); // 0.5 ~ 2.4 ms <=> offset 0dge.
-//        let v_us = (degree * 95 / 9 + 500 + 1900*120/180); // 0.5 ~ 2.4 ms <=> offset 120dge.
-//        let v_us = ((degree+100) * 1900 / 180 + 500); // 0.5 ~ 2.4 ms
+        let deg;
+        if(channel == 0 || channel == 2 || channel == 4)
+            deg = 90 - deg;
+        else    
+            deg = deg -90;
+        if     (deg <   0) deg =   0;
+        else if(deg > 180) deg = 180;
+
+        let v_us = (deg * 95 / 9 + 500); // 0.5 ~ 2.4 ms <=> offset 0dge.
+//        let v_us = (deg * 95 / 9 + 500 + 1900*120/180); // 0.5 ~ 2.4 ms <=> offset 120dge.
+//        let v_us = ((deg+100) * 1900 / 180 + 500); // 0.5 ~ 2.4 ms
         let val = v_us * 4096 / 20000; // 50hz: 20,000 us
         setPwm(channel+3, 0, val);
     }
