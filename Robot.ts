@@ -151,7 +151,7 @@ namespace Robot {
             initPCA9685();
         }
         let deg = degee - 90;
-        if(channel == 0 || channel == 2 || channel == 4)
+        if (channel == 0 || channel == 2 || channel == 4)
             deg = 90 - degree;
 
         if     (deg <   0) deg =   0;
