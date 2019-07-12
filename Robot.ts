@@ -184,7 +184,7 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        let n = time * 100;
+        let n = time * 10;
         
         let wt = - Waist  / n;
         let fr = - FrontR / n;
@@ -215,7 +215,7 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        let n = time * 100;
+        let n = time * 10;
         
         let wt = ( degree   - Waist ) / n;
         let fr = ( degree   - FrontR) / n;
@@ -246,7 +246,7 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        let n = time * 100;
+        let n = time * 10;
         
         let wt = (-degree   - Waist ) / n;
         let fr = (-degree   - FrontR) / n;
