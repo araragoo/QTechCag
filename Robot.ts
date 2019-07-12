@@ -177,9 +177,10 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setUpRight block="Upright"
+    //% blockId=setUpRight block="Upright time[s]:1<=>5 %time""
     //% weight=85
-    export function upRight(): void {
+    //% time.min=1 time.max=5
+    export function upRight(time: number): void {
         if (!initialized) {
             initPCA9685();
         }
