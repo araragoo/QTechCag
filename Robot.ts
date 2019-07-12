@@ -207,7 +207,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkRight block="Walk Right degree:-90<=>90 %degree|time[s]:1<=>5 %time"
+    //% blockId=setWalkRight block="Walk Right degree:-45<=>45 %degree|time[s]:1<=>5 %time"
     //% weight=85
     //% degree.min=-45 degree.max=45
     //% time.min=1 time.max=5
@@ -238,7 +238,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkLeft block="Walk Left degree:-90<=>90 %degree|time[s]:1<=>5 %time"
+    //% blockId=setWalkLeft block="Walk Left degree:-45<=>45 %degree|time[s]:1<=>5 %time"
     //% weight=85
     //% degree.min=-45 degree.max=45
     //% time.min=1 time.max=5
