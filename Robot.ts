@@ -177,6 +177,35 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
+    //% blockId=setUpRight block="Upright"
+    //% weight=85
+    export function upRight(): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        let n = time * 100;
+        
+        let wt = - Waist  / n;
+        let fr = - FrontR / n;
+        let fl = - FrontL / n;
+        let rr = - RearR  / n;
+        let rl = - RearL  / n;
+
+        for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(2, FrontL + fl); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+        }
+        Servo(0, Waist ); control.waitMicros(20000);
+        Servo(1, FrontR); control.waitMicros(20000);
+        Servo(2, FrontL); control.waitMicros(20000);
+        Servo(3, RearR ); control.waitMicros(20000);
+        Servo(4, RearL ); control.waitMicros(20000);
+    }
+
+    //  subcategory="Robot"
     //% blockId=setServo block="Walk Right degree:-90<=>90 %degree|time[s]:1<=>5 %time"
     //% weight=85
     //% degree.min=-45 degree.max=45
@@ -208,36 +237,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setServo block="Upright"
-    //% weight=85
-    export function upRight(): void {
-        if (!initialized) {
-            initPCA9685();
-        }
-        let n = time * 100;
-        
-        let wt = - Waist  / n;
-        let fr = - FrontR / n;
-        let fl = - FrontL / n;
-        let rr = - RearR  / n;
-        let rl = - RearL  / n;
-
-        for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
-            Servo(1, FrontR + fr); control.waitMicros(20000);
-            Servo(2, FrontL + fl); control.waitMicros(20000);
-            Servo(3, RearR  + rr); control.waitMicros(20000);
-            Servo(4, RearL  + rl); control.waitMicros(20000);
-        }
-        Servo(0, Waist ); control.waitMicros(20000);
-        Servo(1, FrontR); control.waitMicros(20000);
-        Servo(2, FrontL); control.waitMicros(20000);
-        Servo(3, RearR ); control.waitMicros(20000);
-        Servo(4, RearL ); control.waitMicros(20000);
-    }
-
-    //  subcategory="Robot"
-    //% blockId=setServo block="Walk Left degree:-90<=>90 %degree|time[s]:1<=>5 %time"
+    //% blockId=setWalkLeft block="Walk Left degree:-90<=>90 %degree|time[s]:1<=>5 %time"
     //% weight=85
     //% degree.min=-45 degree.max=45
     //% time.min=1 time.max=5
