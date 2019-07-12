@@ -145,7 +145,7 @@ namespace Robot {
     //% blockId=setServo block="Servo Waist:0 FrontR:1 FrontL:2 RearR:3 RearL:4 %channel|degree:-90<=>90 %degree"
     //% weight=85
     //% channel.min=0 channel.max=4
-    //% degree.min=0 degree.max=180
+    //% degree.min=-90 degree.max=90
     export function Servo(channel: number,degree: number): void {
         if (!initialized) {
             initPCA9685();
