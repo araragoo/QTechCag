@@ -215,13 +215,13 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        let n = time * 10;
-        
-        let wt = ( degree   - Waist ) / n;
-        let fr = ( degree   - FrontR) / n;
-        let fl = (-degree   - FrontL) / n;
-        let rr = (-degree*2 - RearR)  / n;
-        let rl = (      0   - RearL)  / n;
+        let n = time * 10 / 2;
+
+        let wt = (-degree - Waist ) / n;
+        let fr = (-degree - FrontR) / n;
+        let fl = (      0 - FrontL) / n;
+        let rr = (      0 - RearR)  / n;
+        let rl = (      0 - RearL)  / n;
 
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
@@ -230,11 +230,31 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0, Waist ); control.waitMicros(20000);
-        Servo(1, FrontR); control.waitMicros(20000);
-        Servo(2, FrontL); control.waitMicros(20000);
-        Servo(3, RearR ); control.waitMicros(20000);
-        Servo(4, RearL ); control.waitMicros(20000);
+
+        Servo(0, -degree); control.waitMicros(20000);
+        Servo(1, -degree); control.waitMicros(20000);
+        Servo(2,       0); control.waitMicros(20000);
+        Servo(3,       0); control.waitMicros(20000);
+        Servo(4,       0); control.waitMicros(20000);
+
+        wt = ( degree   - Waist ) / n;
+        fr = ( degree   - FrontR) / n;
+        fl = (-degree   - FrontL) / n;
+        rr = (-degree*2 - RearR)  / n;
+        rl = (        0 - RearL)  / n;
+
+        for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(2, FrontL + fl); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+        }
+        Servo(0,  degree  ); control.waitMicros(20000);
+        Servo(1,  degree  ); control.waitMicros(20000);
+        Servo(2, -degree  ); control.waitMicros(20000);
+        Servo(3, -degree*2); control.waitMicros(20000);
+        Servo(4,         0); control.waitMicros(20000);
     }
 
     //  subcategory="Robot"
@@ -246,13 +266,13 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        let n = time * 10;
-        
-        let wt = (-degree   - Waist ) / n;
-        let fr = (-degree   - FrontR) / n;
-        let fl = ( degree   - FrontL) / n;
-        let rr = (      0   - RearR)  / n;
-        let rl = (-degree*2 - RearL)  / n;
+        let n = time * 10 / 2;
+
+        let wt = ( degree - Waist ) / n;
+        let fr = (      0- FrontR) / n;
+        let fl = (-degree - FrontL) / n;
+        let rr = (      0 - RearR)  / n;
+        let rl = (      0 - RearL)  / n;
 
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
@@ -261,11 +281,31 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0, Waist ); control.waitMicros(20000);
-        Servo(1, FrontR); control.waitMicros(20000);
-        Servo(2, FrontL); control.waitMicros(20000);
-        Servo(3, RearR ); control.waitMicros(20000);
-        Servo(4, RearL ); control.waitMicros(20000);
+
+        Servo(0,  degree); control.waitMicros(20000);
+        Servo(1,       0); control.waitMicros(20000);
+        Servo(2, -degree); control.waitMicros(20000);
+        Servo(3,       0); control.waitMicros(20000);
+        Servo(4,       0); control.waitMicros(20000);
+
+        wt = (-degree   - Waist ) / n;
+        fr = (-degree   - FrontR) / n;
+        fl = ( degree   - FrontL) / n;
+        rr = (        0 - RearR)  / n;
+        rl = (-degree*2 - RearL)  / n;
+
+        for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(2, FrontL + fl); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+        }
+        Servo(0, -degree  ); control.waitMicros(20000);
+        Servo(1, -degree  ); control.waitMicros(20000);
+        Servo(2,  degree  ); control.waitMicros(20000);
+        Servo(3,         0); control.waitMicros(20000);
+        Servo(4, -degree*2); control.waitMicros(20000);
     }
 
     //  subcategory="Robot"
