@@ -317,7 +317,7 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        WAISAT0 = degree;
+        WAIST0 = degree;
     }
 
     //  subcategory="Robot"
