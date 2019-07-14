@@ -185,7 +185,8 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        if(time == 0) time = 1;
+        if(time   == 0) time = 1;
+
         let n = time * 10;
         
         let wt = - Waist  / n;
@@ -201,11 +202,75 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0, Waist ); control.waitMicros(20000);
-        Servo(1, FrontR); control.waitMicros(20000);
-        Servo(2, FrontL); control.waitMicros(20000);
-        Servo(3, RearR ); control.waitMicros(20000);
-        Servo(4, RearL ); control.waitMicros(20000);
+        Servo(0, 0); control.waitMicros(20000);
+        Servo(1, 0); control.waitMicros(20000);
+        Servo(2, 0); control.waitMicros(20000);
+        Servo(3, 0); control.waitMicros(20000);
+        Servo(4, 0); control.waitMicros(20000);
+    }
+
+    //  subcategory="Robot"
+    //% blockId=setSitDown block="Upright time[s]:0.5<=>5 %time""
+    //% weight=85
+    //% time.min=0.5 time.max=5
+    export function sitDown(time: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        if(time   == 0) time = 1;
+
+        let n = time * 10;
+        
+        let wt = (  0 - Waist ) / n;
+        let fr = (-30 - FrontR) / n;
+        let fl = (-30 - FrontL) / n;
+        let rr = ( 90 - RearR)  / n;
+        let rl = ( 90 - RearL)  / n;
+
+        for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(2, FrontL + fl); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+        }
+        Servo(0,  0); control.waitMicros(20000);
+        Servo(1,-30); control.waitMicros(20000);
+        Servo(2,-30); control.waitMicros(20000);
+        Servo(3, 90); control.waitMicros(20000);
+        Servo(4, 90); control.waitMicros(20000);
+    }
+
+    //  subcategory="Robot"
+    //% blockId=setHappiness block="Upright time[s]:0.5<=>5 %time""
+    //% weight=85
+    //% time.min=0.5 time.max=5
+    export function happiness(time: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        if(time   == 0) time = 1;
+
+        let n = time * 10;
+        
+        let wt = (  0 - Waist ) / n;
+        let fr = ( 90 - FrontR) / n;
+        let fl = ( 90 - FrontL) / n;
+        let rr = (-90 - RearR)  / n;
+        let rl = (-90 - RearL)  / n;
+
+        for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(2, FrontL + fl); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+        }
+        Servo(0,   0); control.waitMicros(20000);
+        Servo(1,  90); control.waitMicros(20000);
+        Servo(2,  90); control.waitMicros(20000);
+        Servo(3, -90); control.waitMicros(20000);
+        Servo(4, -90); control.waitMicros(20000);
     }
 
     //  subcategory="Robot"
