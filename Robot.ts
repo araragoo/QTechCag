@@ -208,14 +208,16 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkRight block="Walk Right degree:-45<=>45 %degree|time[s]:0.5<=>5 %time"
+    //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% weight=85
-    //% degree.min=-45 degree.max=45
+    //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
     export function walkRight(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
         }
+        if(degree == 0) degree = 45;
+        if(time   == 0) time = 1;
         let n = time * 10 / 2;
 
         let wt = (-WAIST0 - Waist ) / n;
@@ -259,14 +261,16 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkLeft block="Walk Left degree:-45<=>45 %degree|time[s]:0.5<=>5 %time"
+    //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% weight=85
-    //% degree.min=-45 degree.max=45
+    //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
     export function walkLeft(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
         }
+        if(degree == 0) degree = 45;
+        if(time   == 0) time = 1;
         let n = time * 10 / 2;
 
         let wt = ( WAIST0 - Waist ) / n;
