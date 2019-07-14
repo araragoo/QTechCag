@@ -40,6 +40,7 @@ namespace Robot {
 
     let initialized = false
 
+    let WAIST0 = 15;
     let Waist  = 0;
     let FrontR = 0;
     let FrontL = 0;
@@ -217,7 +218,7 @@ namespace Robot {
         }
         let n = time * 10 / 2;
 
-        let wt = (-degree - Waist ) / n;
+        let wt = (-WAIST0 - Waist ) / n;
         let fr = (      0 - FrontR) / n;
         let fl = (      0 - FrontL) / n;
         let rr = (-degree - RearR)  / n;
@@ -231,13 +232,13 @@ namespace Robot {
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
 
-        Servo(0, -degree); control.waitMicros(20000);
+        Servo(0, -WAIST0); control.waitMicros(20000);
         Servo(1,       0); control.waitMicros(20000);
         Servo(2,       0); control.waitMicros(20000);
         Servo(3, -degree); control.waitMicros(20000);
         Servo(4,       0); control.waitMicros(20000);
 
-        wt = ( degree - Waist ) / n;
+        wt = ( WAIST0 - Waist ) / n;
         fr = ( degree - FrontR) / n;
         fl = (-degree - FrontL) / n;
         rr = (      0 - RearR)  / n;
@@ -250,7 +251,7 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0,  degree); control.waitMicros(20000);
+        Servo(0,  WAIST0); control.waitMicros(20000);
         Servo(1,  degree); control.waitMicros(20000);
         Servo(2, -degree); control.waitMicros(20000);
         Servo(3,       0); control.waitMicros(20000);
@@ -268,7 +269,7 @@ namespace Robot {
         }
         let n = time * 10 / 2;
 
-        let wt = ( degree - Waist ) / n;
+        let wt = ( WAIST0 - Waist ) / n;
         let fr = (      0 - FrontR) / n;
         let fl = (      0 - FrontL) / n;
         let rr = (      0- RearR)  / n;
@@ -282,13 +283,13 @@ namespace Robot {
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
 
-        Servo(0,  degree); control.waitMicros(20000);
+        Servo(0,  WAIST0); control.waitMicros(20000);
         Servo(1,       0); control.waitMicros(20000);
         Servo(2,       0); control.waitMicros(20000);
         Servo(3,       0); control.waitMicros(20000);
         Servo(4, -degree); control.waitMicros(20000);
 
-        wt = (-degree - Waist ) / n;
+        wt = (-WAIST0 - Waist ) / n;
         fr = (-degree - FrontR) / n;
         fl = ( degree - FrontL) / n;
         rr = (-degree - RearR)  / n;
@@ -301,11 +302,22 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0, -degree); control.waitMicros(20000);
+        Servo(0, -WAIST0); control.waitMicros(20000);
         Servo(1, -degree); control.waitMicros(20000);
         Servo(2,  degree); control.waitMicros(20000);
         Servo(3, -degree); control.waitMicros(20000);
         Servo(4,       0); control.waitMicros(20000);
+    }
+
+    //  subcategory="Robot"
+    //% blockId=setSetWaist block="Waist degree:-45<=>45 %degree"
+    //% weight=85
+    //% degree.min=-45 degree.max=45
+    export function setWaist(degree: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        WAISAT0 = degree;
     }
 
     //  subcategory="Robot"
