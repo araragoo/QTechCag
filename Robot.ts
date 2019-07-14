@@ -185,6 +185,7 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
+        if(time == 0) time = 1;
         let n = time * 10;
         
         let wt = - Waist  / n;
@@ -314,9 +315,9 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setSetWaist block="Waist degree:-45<=>45 %degree"
+    //% blockId=setSetWaist block="Waist degree:-60<=>60 %degree"
     //% weight=85
-    //% degree.min=-45 degree.max=45
+    //% degree.min=-60 degree.max=60
     export function setWaist(degree: number): void {
         if (!initialized) {
             initPCA9685();
