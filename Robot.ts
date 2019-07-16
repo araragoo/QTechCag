@@ -240,11 +240,11 @@ namespace Robot {
         Servo(3,      0); control.waitMicros(20000);
         Servo(4,     30); control.waitMicros(20000);
 
-        wt = ( WAIST0 - Waist ) / n;
-        fr = (    -30 - FrontR) / n;
-        fl = (    -30 - FrontL) / n;
-        rr = (     30 - RearR)  / n;
-        rl = (     30 - RearL)  / n;
+        wt = (  0 - Waist ) / n;
+        fr = (-30 - FrontR) / n;
+        fl = (-30 - FrontL) / n;
+        rr = ( 30 - RearR)  / n;
+        rl = ( 30 - RearL)  / n;
 
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
@@ -253,11 +253,11 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0, WAIST0); control.waitMicros(20000);
-        Servo(1,    -30); control.waitMicros(20000);
-        Servo(2,    -30); control.waitMicros(20000);
-        Servo(3,     30); control.waitMicros(20000);
-        Servo(4,     30); control.waitMicros(20000);
+        Servo(0,   0); control.waitMicros(20000);
+        Servo(1, -30); control.waitMicros(20000);
+        Servo(2, -30); control.waitMicros(20000);
+        Servo(3,  30); control.waitMicros(20000);
+        Servo(4,  30); control.waitMicros(20000);
     }
 
     //  subcategory="Robot"
