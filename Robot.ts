@@ -422,4 +422,56 @@ namespace Robot {
 //        val = val * 4095 / 100;
         setPwm(channel, 0, val);
     }
+
+    //% subcategory="Music"
+    //% blockId=setDog block="Dog"
+    //% weight=85
+    export function dog(void): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        music.playTone(440, music.beat(BeatFraction.Half))
+        music.playTone(349, music.beat(BeatFraction.Half))
+        music.playTone(392, music.beat(BeatFraction.Half))
+        music.playTone(587, music.beat(BeatFraction.Whole))
+        music.rest(music.beat(BeatFraction.Half))
+        music.playTone(523, music.beat(BeatFraction.Half))
+        music.playTone(392, music.beat(BeatFraction.Half))
+        music.playTone(440, music.beat(BeatFraction.Half))
+        music.playTone(349, music.beat(BeatFraction.Whole))
+        music.rest(music.beat(BeatFraction.Half))
+    }
+
+    //% subcategory="Music"
+    //% blockId=setCat block="Cat"
+    //% weight=85
+    export function cat(void): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        music.playTone(523, music.beat(BeatFraction.Half))
+        music.playTone(440, music.beat(BeatFraction.Half))
+        music.playTone(523, music.beat(BeatFraction.Half))
+        music.playTone(698, music.beat(BeatFraction.Whole))
+        music.rest(music.beat(BeatFraction.Half))
+        music.playTone(523, music.beat(BeatFraction.Half))
+        music.playTone(440, music.beat(BeatFraction.Half))
+        music.playTone(523, music.beat(BeatFraction.Half))
+        music.playTone(392, music.beat(BeatFraction.Whole))
+        music.rest(music.beat(BeatFraction.Half))
+    }
+
+    //  subcategory="Robot"
+    //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
+    //% weight=85
+    //% channel.min=0 channel.max=2
+    //% voltage.min=0 voltage.max=100
+    export function LED(channel: number,voltage: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        let val = voltage * 81 / 2;
+//        val = val * 4095 / 100;
+        setPwm(channel, 0, val);
+    }
 } 
