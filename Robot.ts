@@ -423,10 +423,10 @@ namespace Robot {
         setPwm(channel, 0, val);
     }
 
-    //% subcategory="Music"
+    // subcategory="Music"
     //% blockId=setDog block="Dog"
     //% weight=85
-    export function dog(void): void {
+    export function dog(): void {
         if (!initialized) {
             initPCA9685();
         }
@@ -442,10 +442,10 @@ namespace Robot {
         music.rest(music.beat(BeatFraction.Half))
     }
 
-    //% subcategory="Music"
+    // subcategory="Music"
     //% blockId=setCat block="Cat"
     //% weight=85
-    export function cat(void): void {
+    export function cat(): void {
         if (!initialized) {
             initPCA9685();
         }
