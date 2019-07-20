@@ -10,6 +10,6 @@
 	"Robot.walkLeft|block": "左前 角度:-60～60[°] %degree|時間:0.5～5[s] %time",
 	"Robot.setWaist|block": "足上設定 角度:-60～60[°] %degree",
 	"Robot.Dog|block": "いぬ：ワン、ワン、ワワーン",
-	"Robot.Cat|block": "ねこ：ニャン、ニャン、ニャニャーン"
+	"Robot.Cat|block": "ねこ：ニャン、ニャン、ニャニャーン",
 	"Robot.LED|block": "光 赤:0 緑:1 青:2 %channel|電圧:0～100 %voltage"
 }
