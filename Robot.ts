@@ -410,7 +410,7 @@ namespace Robot {
     }
 
     //  subcategory="Music1"
-    //% blockId=setDog block="Dog"
+    //% blockId=setDog block="dog"
     //% weight=85
     export function dog(): void {
         if (!initialized) {
@@ -429,7 +429,7 @@ namespace Robot {
     }
 
     //  subcategory="Music1"
-    //% blockId=setCat block="Cat"
+    //% blockId=setCat block="cat"
     //% weight=85
     export function cat(): void {
         if (!initialized) {
