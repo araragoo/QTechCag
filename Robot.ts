@@ -210,7 +210,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setSitDown block="Upright time[s]:0.5<=>5 %time""
+    //% blockId=setSitDown block="Sit Down time[s]:0.5<=>5 %time""
     //% weight=85
     //% time.min=0.5 time.max=5
     export function sitDown(time: number): void {
@@ -261,7 +261,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setHappiness block="Upright time[s]:0.5<=>5 %time""
+    //% blockId=setHappiness block="Happiness time[s]:0.5<=>5 %time""
     //% weight=85
     //% time.min=0.5 time.max=5
     export function happiness(time: number): void {
