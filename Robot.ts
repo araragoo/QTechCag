@@ -409,20 +409,6 @@ namespace Robot {
         WAIST0 = degree;
     }
 
-    //  subcategory="Robot"
-    //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
-    //% weight=85
-    //% channel.min=0 channel.max=2
-    //% voltage.min=0 voltage.max=100
-    export function LED(channel: number,voltage: number): void {
-        if (!initialized) {
-            initPCA9685();
-        }
-        let val = voltage * 81 / 2;
-//        val = val * 4095 / 100;
-        setPwm(channel, 0, val);
-    }
-
     // subcategory="Music"
     //% blockId=setDog block="Dog"
     //% weight=85
