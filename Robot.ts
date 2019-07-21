@@ -138,7 +138,7 @@ namespace Robot {
         radio.setGroup(n)
     }
 
-    //  subcategory="Robot"
+    //% subcategory="Motor"
     //% blockId=setMortor block="Motor Right:0 Left:1 %channel|BWD<=>FWD:-100<=>100 %voltage"
     //% weight=85
     //% channel.min=0 channel.max=1
@@ -147,8 +147,7 @@ namespace Robot {
         driveMotor(channel, voltage);
     }
 
-    //  subcategory="Robot"
-    //  blockId=setServo block="Servo LowR:0 LowL:1 HighR:2 HighL:3 %channel|degree:-45<=>45 %degree"
+    //% subcategory="Motor"
     //% blockId=setServo block="Servo Waist:0 FrontR:1 FrontL:2 RearR:3 RearL:4 %channel|degree:-90<=>90 %degree"
     //% weight=85
     //% channel.min=0 channel.max=4
@@ -292,7 +291,7 @@ namespace Robot {
         Servo(4, -90); control.waitMicros(20000);
     }
 
-    //  subcategory="Robot"
+    //% subcategory="Motor"
     //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% weight=85
     //% degree.min=-60 degree.max=60
@@ -345,7 +344,7 @@ namespace Robot {
         Servo(4, -degree); control.waitMicros(20000);
     }
 
-    //  subcategory="Robot"
+    //% subcategory="Motor"
     //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% weight=85
     //% degree.min=-60 degree.max=60
@@ -398,7 +397,7 @@ namespace Robot {
         Servo(4,       0); control.waitMicros(20000);
     }
 
-    //  subcategory="Robot"
+    //% subcategory="Motor"
     //% blockId=setSetWaist block="Waist degree:-60<=>60 %degree"
     //% weight=85
     //% degree.min=-60 degree.max=60
@@ -409,7 +408,21 @@ namespace Robot {
         WAIST0 = degree;
     }
 
-    //% subcategory="Music1"
+    //% subcategory="LED Music"
+    //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
+    //% weight=85
+    //% channel.min=0 channel.max=2
+    //% voltage.min=0 voltage.max=100
+    export function LED(channel: number,voltage: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        let val = voltage * 81 / 2;
+//        val = val * 4095 / 100;
+        setPwm(channel, 0, val);
+    }
+
+    //% subcategory="LED Music"
     //% blockId=setDog block="dog"
     //% weight=85
     export function dog(): void {
@@ -428,7 +441,7 @@ namespace Robot {
         music.rest(music.beat(BeatFraction.Half))
     }
 
-    //% subcategory="Music1"
+    //% subcategory="LED Music"
     //% blockId=setCat block="cat"
     //% weight=85
     export function cat(): void {
@@ -447,17 +460,4 @@ namespace Robot {
         music.rest(music.beat(BeatFraction.Half))
     }
 
-    //  subcategory="Robot"
-    //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
-    //% weight=85
-    //% channel.min=0 channel.max=2
-    //% voltage.min=0 voltage.max=100
-    export function LED(channel: number,voltage: number): void {
-        if (!initialized) {
-            initPCA9685();
-        }
-        let val = voltage * 81 / 2;
-//        val = val * 4095 / 100;
-        setPwm(channel, 0, val);
-    }
 } 
