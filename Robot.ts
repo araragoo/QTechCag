@@ -409,7 +409,7 @@ namespace Robot {
         WAIST0 = degree;
     }
 
-    //  subcategory="Music1"
+    //% subcategory="Music1"
     //% blockId=setDog block="dog"
     //% weight=85
     export function dog(): void {
@@ -428,7 +428,7 @@ namespace Robot {
         music.rest(music.beat(BeatFraction.Half))
     }
 
-    //  subcategory="Music1"
+    //% subcategory="Music1"
     //% blockId=setCat block="cat"
     //% weight=85
     export function cat(): void {
