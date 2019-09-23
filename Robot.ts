@@ -328,7 +328,7 @@ namespace Robot {
         fr = ( degree - FrontR) / n;
         fl = (-degree - FrontL) / n;
         rr = (      0 - RearR)  / n;
-        rl = ( -degree- RearL)  / n;
+        rl = (-degree - RearL)  / n;
 
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
@@ -342,6 +342,19 @@ namespace Robot {
         Servo(2, -degree); control.waitMicros(20000);
         Servo(3,       0); control.waitMicros(20000);
         Servo(4, -degree); control.waitMicros(20000);
+    }
+
+    //% subcategory="Motor"
+    //% blockId=setRevRight block="Reverse Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
+    //% weight=85
+    //% degree.min=-60 degree.max=60
+    //% time.min=0.5 time.max=5
+    export function revRight(degree: number, time: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        if(degree == 0) degree = 45;
+        walkRight(-degree, time);
     }
 
     //% subcategory="Motor"
@@ -360,7 +373,7 @@ namespace Robot {
         let wt = ( WAIST0 - Waist ) / n;
         let fr = (-degree - FrontR) / n;
         let fl = ( degree - FrontL) / n;
-        let rr = (      0- RearR)  / n;
+        let rr = (      0 - RearR)  / n;
         let rl = (-degree - RearL)  / n;
 
         for (let i = 0; i < n; i++) {
@@ -381,7 +394,7 @@ namespace Robot {
         fr = (-degree - FrontR) / n;
         fl = ( degree - FrontL) / n;
         rr = (-degree - RearR)  / n;
-        rl = (      0- RearL)  / n;
+        rl = (      0 - RearL)  / n;
 
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
@@ -395,6 +408,19 @@ namespace Robot {
         Servo(2,  degree); control.waitMicros(20000);
         Servo(3, -degree); control.waitMicros(20000);
         Servo(4,       0); control.waitMicros(20000);
+    }
+
+    //% subcategory="Motor"
+    //% blockId=setRevLeft block="Reverse Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
+    //% weight=85
+    //% degree.min=-60 degree.max=60
+    //% time.min=0.5 time.max=5
+    export function revLeft(degree: number, time: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        if(degree == 0) degree = 45;
+        walkLeft(-degree, time);
     }
 
     //% subcategory="Motor"
