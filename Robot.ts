@@ -424,6 +424,7 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
+
         Servo(0,  WAIST0); control.waitMicros(20000);
         Servo(1, -degree); control.waitMicros(20000);
         Servo(2,  degree); control.waitMicros(20000);
