@@ -293,7 +293,7 @@ namespace Robot {
     }
 
     //% subcategory="Motor"
-    //% blockId=setWalkFor block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
+    //% blockId=setWalkFor block="Walk Forword degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% weight=85
     //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
