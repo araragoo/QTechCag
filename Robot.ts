@@ -367,7 +367,7 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        if(degree == 0) degree = 30;
+        if(degree == 0) degree = 3;
         if(time   == 0) time = 1;
 
         let n = time * 10;
