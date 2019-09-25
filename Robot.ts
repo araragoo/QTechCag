@@ -293,224 +293,135 @@ namespace Robot {
     }
 
     //% subcategory="Motor"
-    //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
+    //% blockId=setWalkFor block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% weight=85
     //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
-    export function walkRight(degree: number, time: number): void {
+    export function walkFor(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
         }
         if(degree == 0) degree = 45;
         if(time   == 0) time = 1;
 
-        let n = time * 10 / 4;
+        let n = time * 10;
 
         let wt = (-WAIST0 - Waist ) / n;
         let fr = ( degree - FrontR) / n;
         let fl = (-degree - FrontL) / n;
-        let rr = (-degree - RearR)  / n;
-        let rl = (-degree - RearL)  / n;
+        let rr = (-degree - RearR ) / n;
+        let rl = (-degree - RearL ) / n;
+        if(wt != 0)
+          for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+          }
+        Servo(0, -WAIST0); control.waitMicros(20000);
         for (let i = 0; i < n; i++) {
             Servo(1, FrontR + fr); control.waitMicros(20000);
             Servo(2, FrontL + fl); control.waitMicros(20000);
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
-        }
-        Servo(0, -WAIST0); control.waitMicros(20000);
         Servo(1,  degree); control.waitMicros(20000);
         Servo(2, -degree); control.waitMicros(20000);
         Servo(3, -degree); control.waitMicros(20000);
         Servo(4, -degree); control.waitMicros(20000);
 
         wt = ( WAIST0 - Waist ) / n;
-        fr = ( degree - FrontR) / n;
-        fl = (-degree - FrontL) / n;
-        rr = (      0 - RearR)  / n;
-        rl = (-degree - RearL)  / n;
+        rr = (      0 - RearR ) / n;
+        for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+        }
+        Servo(0,  WAIST0); control.waitMicros(20000);
+        Servo(3, -degree); control.waitMicros(20000);
+
+        fr = (-degree - FrontR) / n;
+        fl = ( degree - FrontL) / n;
+        rr = (-degree - RearR ) / n;
         for (let i = 0; i < n; i++) {
             Servo(1, FrontR + fr); control.waitMicros(20000);
             Servo(2, FrontL + fl); control.waitMicros(20000);
             Servo(3, RearR  + rr); control.waitMicros(20000);
-            Servo(4, RearL  + rl); control.waitMicros(20000);
         }
+        Servo(1, -degree); control.waitMicros(20000);
+        Servo(2,  degree); control.waitMicros(20000);
+        Servo(3, -degree); control.waitMicros(20000);
+
+        wt = (-WAIST0 - Waist ) / n;
+        rl = (      0 - RearL ) / n;
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
         }
         Servo(0,  WAIST0); control.waitMicros(20000);
-        Servo(1,  degree); control.waitMicros(20000);
-        Servo(2, -degree); control.waitMicros(20000);
         Servo(3,       0); control.waitMicros(20000);
-        Servo(4, -degree); control.waitMicros(20000);
     }
 
     //% subcategory="Motor"
-    //% blockId=setRevRight block="Reverse Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
+    //% blockId=setWalkRev block="Walk Reverse degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% weight=85
     //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
-    export function revRight(degree: number, time: number): void {
+    export function walkRev(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
         }
         if(degree == 0) degree = 45;
         if(time   == 0) time = 1;
 
-        let n = time * 10 / 4;
+        let n = time * 10;
 
         let wt = (-WAIST0 - Waist ) / n;
         let fr = (-degree - FrontR) / n;
-        let fl = (-degree - FrontL) / n;
-        let rr = (-degree - RearR)  / n;
-        let rl = (      0 - RearL)  / n;
-
+        let fl = ( degree - FrontL) / n;
+        let rr = (-degree - RearR ) / n;
+        let rl = (      0 - RearL ) / n;
+        if(wt != 0)
+          for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+          }
+        Servo(0, -WAIST0); control.waitMicros(20000);
         for (let i = 0; i < n; i++) {
             Servo(1, FrontR + fr); control.waitMicros(20000);
             Servo(2, FrontL + fl); control.waitMicros(20000);
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
-        }
-        Servo(0, -WAIST0); control.waitMicros(20000);
         Servo(1, -degree); control.waitMicros(20000);
-        Servo(2, -degree); control.waitMicros(20000);
+        Servo(2,  degree); control.waitMicros(20000);
         Servo(3, -degree); control.waitMicros(20000);
         Servo(4,       0); control.waitMicros(20000);
 
         wt = ( WAIST0 - Waist ) / n;
-        fr = (-degree - FrontR) / n;
-        fl = (-degree - FrontL) / n;
-        rr = (      0 - RearR)  / n;
-        rl = (-degree - RearL)  / n;
+        rl = (-degree - RearL ) / n;
+        for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+        }
+        Servo(0,  WAIST0); control.waitMicros(20000);
+        Servo(4, -degree); control.waitMicros(20000);
 
+        fr = ( degree - FrontR) / n;
+        fl = (-degree - FrontL) / n;
+        rr = (      0 - RearR ) / n;
         for (let i = 0; i < n; i++) {
             Servo(1, FrontR + fr); control.waitMicros(20000);
             Servo(2, FrontL + fl); control.waitMicros(20000);
             Servo(3, RearR  + rr); control.waitMicros(20000);
-            Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
-        }
-        Servo(0,  WAIST0); control.waitMicros(20000);
-        Servo(1, -degree); control.waitMicros(20000);
+        Servo(1,  degree); control.waitMicros(20000);
         Servo(2, -degree); control.waitMicros(20000);
         Servo(3,       0); control.waitMicros(20000);
-        Servo(4, -degree); control.waitMicros(20000);
-    }
-
-    //% subcategory="Motor"
-    //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
-    //% weight=85
-    //% degree.min=-60 degree.max=60
-    //% time.min=0.5 time.max=5
-    export function walkLeft(degree: number, time: number): void {
-        if (!initialized) {
-            initPCA9685();
-        }
-        if(degree == 0) degree = 45;
-        if(time   == 0) time = 1;
-
-        let n = time * 10 / 4;
-
-        let wt = ( WAIST0 - Waist ) / n;
-        let fr = (-degree - FrontR) / n;
-        let fl = ( degree - FrontL) / n;
-        let rr = (-degree - RearR)  / n;
-        let rl = (-degree - RearL)  / n;
-        for (let i = 0; i < n; i++) {
-            Servo(1, FrontR + fr); control.waitMicros(20000);
-            Servo(2, FrontL + fl); control.waitMicros(20000);
-            Servo(3, RearR  + rr); control.waitMicros(20000);
-            Servo(4, RearL  + rl); control.waitMicros(20000);
-        }
-        for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
-        }
-        Servo(0,  WAIST0); control.waitMicros(20000);
-        Servo(1, -degree); control.waitMicros(20000);
-        Servo(2,  degree); control.waitMicros(20000);
-        Servo(3, -degree); control.waitMicros(20000);
-        Servo(4, -degree); control.waitMicros(20000);
 
         wt = (-WAIST0 - Waist ) / n;
-        fr = (-degree - FrontR) / n;
-        fl = ( degree - FrontL) / n;
-        rr = (-degree - RearR)  / n;
-        rl = (      0 - RearL)  / n;
-        for (let i = 0; i < n; i++) {
-            Servo(1, FrontR + fr); control.waitMicros(20000);
-            Servo(2, FrontL + fl); control.waitMicros(20000);
-            Servo(3, RearR  + rr); control.waitMicros(20000);
-            Servo(4, RearL  + rl); control.waitMicros(20000);
-        }
+        rl = (-degree - RearL ) / n;
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
         }
         Servo(0, -WAIST0); control.waitMicros(20000);
-        Servo(1, -degree); control.waitMicros(20000);
-        Servo(2,  degree); control.waitMicros(20000);
         Servo(3, -degree); control.waitMicros(20000);
-        Servo(4,       0); control.waitMicros(20000);
-    }
-
-    //% subcategory="Motor"
-    //% blockId=setRevLeft block="Reverse Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
-    //% weight=85
-    //% degree.min=-60 degree.max=60
-    //% time.min=0.5 time.max=5
-    export function revLeft(degree: number, time: number): void {
-        if (!initialized) {
-            initPCA9685();
-        }
-        if(degree == 0) degree = 45;
-        if(time   == 0) time = 1;
-
-        let n = time * 10 / 4;
-
-        let wt = ( WAIST0 - Waist ) / n;
-        let fr = (-degree - FrontR) / n;
-        let fl = (-degree - FrontL) / n;
-        let rr = (      0 - RearR)  / n;
-        let rl = (-degree - RearL)  / n;
-
-        for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
-            Servo(1, FrontR + fr); control.waitMicros(20000);
-            Servo(2, FrontL + fl); control.waitMicros(20000);
-            Servo(3, RearR  + rr); control.waitMicros(20000);
-            Servo(4, RearL  + rl); control.waitMicros(20000);
-        }
-
-        Servo(0,  WAIST0); control.waitMicros(20000);
-        Servo(1, -degree); control.waitMicros(20000);
-        Servo(2, -degree); control.waitMicros(20000);
-        Servo(3,       0); control.waitMicros(20000);
-        Servo(4, -degree); control.waitMicros(20000);
-
-        wt = (-WAIST0 - Waist ) / n;
-        fr = (-degree - FrontR) / n;
-        fl = (-degree - FrontL) / n;
-        rr = (-degree - RearR)  / n;
-        rl = (      0 - RearL)  / n;
-
-        for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
-            Servo(1, FrontR + fr); control.waitMicros(20000);
-            Servo(2, FrontL + fl); control.waitMicros(20000);
-            Servo(3, RearR  + rr); control.waitMicros(20000);
-            Servo(4, RearL  + rl); control.waitMicros(20000);
-        }
-        Servo(0, -WAIST0); control.waitMicros(20000);
-        Servo(1, -degree); control.waitMicros(20000);
-        Servo(2, -degree); control.waitMicros(20000);
-        Servo(3, -degree); control.waitMicros(20000);
-        Servo(4,       0); control.waitMicros(20000);
     }
 
     //% subcategory="Motor"
