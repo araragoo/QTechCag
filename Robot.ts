@@ -186,7 +186,7 @@ namespace Robot {
         }
         if(time   == 0) time = 1;
 
-        let n = time * 10/2;
+        let n = time * 50/5; // 50 / X = time sec / (0.02msec * X) Xは、Servo()文の個数
         
         let wt = - Waist  / n;
         let fr = - FrontR / n;
@@ -219,7 +219,7 @@ namespace Robot {
         }
         if(time   == 0) time = 1;
 
-        let n = time * 10;
+        let n = time * 50/9; // 50 / X = time sec / (0.02msec * X) Xは、Servo()文の個数
         
         let wt = (      0 - Waist ) / n;
         let fr = (     30 - FrontR) / n;
@@ -240,20 +240,17 @@ namespace Robot {
         Servo(3,      0); control.waitMicros(20000);
         Servo(4,     30); control.waitMicros(20000);
 
-        wt = (  0 - Waist ) / n;
         fr = (-30 - FrontR) / n;
         fl = (-30 - FrontL) / n;
         rr = ( 30 - RearR)  / n;
         rl = ( 30 - RearL)  / n;
 
         for (let i = 0; i < n; i++) {
-            Servo(0, Waist  + wt); control.waitMicros(20000);
             Servo(1, FrontR + fr); control.waitMicros(20000);
             Servo(2, FrontL + fl); control.waitMicros(20000);
             Servo(3, RearR  + rr); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0,   0); control.waitMicros(20000);
         Servo(1, -30); control.waitMicros(20000);
         Servo(2, -30); control.waitMicros(20000);
         Servo(3,  30); control.waitMicros(20000);
@@ -270,7 +267,7 @@ namespace Robot {
         }
         if(time   == 0) time = 1;
 
-        let n = time * 10;
+        let n = time * 50/5; // 50 / X = time sec / (0.02msec * X) Xは、Servo()文の個数
         
         let wt = (  0 - Waist ) / n;
         let fr = ( 90 - FrontR) / n;
@@ -302,9 +299,9 @@ namespace Robot {
             initPCA9685();
         }
         if(degree == 0) degree = 30;
-        if(time   == 0) time = 1;
+        if(time   == 0) time = 2;
 
-        let n = time * 10;
+        let n = time * 50/11; // 50 / X = time sec / (0.02msec * X) Xは、Servo()文の個数
 
         let wt = (-WAIST0 - Waist ) / n;
         let fr = ( degree - FrontR) / n;
@@ -367,10 +364,10 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        if(degree == 0) degree = 3;
-        if(time   == 0) time = 1;
+        if(degree == 0) degree = 30;
+        if(time   == 0) time = 2;
 
-        let n = time * 10;
+        let n = time * 50/11; // 50 / X = time sec / (0.02msec * X) Xは、Servo()文の個数
 
         let wt = (-WAIST0 - Waist ) / n;
         let fr = (-degree - FrontR) / n;
@@ -422,6 +419,70 @@ namespace Robot {
         }
         Servo(0, -WAIST0); control.waitMicros(20000);
         Servo(3, -degree); control.waitMicros(20000);
+    }
+
+    //% subcategory="Motor"
+    //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
+    //% weight=85
+    //% degree.min=-60 degree.max=60
+    //% time.min=0.5 time.max=5
+    export function walkRight(degree: number, time: number): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        if(degree == 0) degree = 30;
+        if(time   == 0) time = 2;
+
+        let n = time * 50/11; // 50 / X = time sec / (0.02msec * X) Xは、Servo()文の個数
+
+        let wt = ( WAIST0 - Waist ) / n;
+        let fr = (-degree - FrontR) / n;
+        let fl = ( degree - FrontL) / n;
+        let rr = (-degree - RearR ) / n;
+        let rl = ( degree - RearL ) / n;
+        for (let i = 0; i < n; i++) {
+          Servo(0, Waist  + wt); control.waitMicros(20000);
+        }
+        Servo(0,  WAIST0); control.waitMicros(20000);
+        for (let i = 0; i < n; i++) {
+            Servo(2, FrontL + fl); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+        }
+        Servo(2,  degree); control.waitMicros(20000);
+        Servo(4,  degree); control.waitMicros(20000);
+
+
+        wt = (-WAIST0 - Waist ) / n;
+        for (let i = 0; i < n; i++) {
+          Servo(0, -Waist  + wt); control.waitMicros(20000);
+        }
+        Servo(0, -WAIST0); control.waitMicros(20000);
+        for (let i = 0; i < n; i++) {
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+        }
+        Servo(1, -degree); control.waitMicros(20000);
+        Servo(3, -degree); control.waitMicros(20000);
+
+        wt = (      0 - Waist ) / n;
+        fr = ( degree - FrontR) / n;
+        fl = (-degree - FrontL) / n;
+        rr = ( degree - RearR ) / n;
+        rl = (-degree - RearL ) / n;
+        for (let i = 0; i < n; i++) {
+          Servo(0, 0 + wt); control.waitMicros(20000);
+        }
+        Servo(0, 0); control.waitMicros(20000);
+        for (let i = 0; i < n; i++) {
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(2, FrontL + fl); control.waitMicros(20000);
+            Servo(4, RearL  + rl); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+        }
+        Servo(1,  degree); control.waitMicros(20000);
+        Servo(2, -degree); control.waitMicros(20000);
+        Servo(3,  degree); control.waitMicros(20000);
+        Servo(4, -degree); control.waitMicros(20000);
     }
 
     //% subcategory="Motor"
