@@ -439,7 +439,7 @@ namespace Robot {
         let fr = (-degree - FrontR) / n;
         let fl = ( degree - FrontL) / n;
         let rr = (-degree - RearR ) / n;
-        let rl = ( degree - RearL ) / n;
+        let rl = (      0 - RearL ) / n;
         if(wt != WAIST0)
           for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
@@ -450,7 +450,7 @@ namespace Robot {
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
         Servo(2,  degree); control.waitMicros(20000);
-        Servo(4,  degree); control.waitMicros(20000);
+        Servo(4,        0); control.waitMicros(20000);
 
         wt = (-WAIST0 - Waist ) / n;
         fl = (-degree - FrontL) / n;
@@ -476,7 +476,7 @@ namespace Robot {
 
         wt = ( WAIST0 - Waist ) / n;
         fr = ( degree - FrontR) / n;
-        rr = ( degree - RearR ) / n;
+        rr = (      0 - RearR ) / n;
         for (let i = 0; i < n; i++) {
           Servo(0, Waist  + wt); control.waitMicros(20000);
         }
@@ -487,7 +487,7 @@ namespace Robot {
             Servo(3, RearR  + rr); control.waitMicros(20000);
         }
         Servo(1,  degree); control.waitMicros(20000);
-        Servo(3,  degree); control.waitMicros(20000);
+        Servo(3,       0); control.waitMicros(20000);
     }
 
     //% subcategory="Motor"
