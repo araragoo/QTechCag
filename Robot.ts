@@ -308,7 +308,7 @@ namespace Robot {
         let fl = (-degree - FrontL) / n;
         let rr = (-degree - RearR ) / n;
         let rl = (-degree - RearL ) / n;
-        if(wt != 0)
+        if(wt != -WAIST0)
           for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
           }
@@ -374,7 +374,7 @@ namespace Robot {
         let fl = ( degree - FrontL) / n;
         let rr = (-degree - RearR ) / n;
         let rl = ( degree - RearL ) / n;
-        if(wt != 0)
+        if(wt != -WAIST0)
           for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
           }
@@ -433,16 +433,17 @@ namespace Robot {
         if(degree == 0) degree = 30;
         if(time   == 0) time = 2;
 
-        let n = time * 50/8; // 50 / X = time sec / (0.02msec * X) X‚ÍAServo()•¶‚ÌŒÂ”
+        let n = time * 50/10; // 50 / X = time sec / (0.02msec * X) X‚ÍAServo()•¶‚ÌŒÂ”
 
         let wt = ( WAIST0 - Waist ) / n;
         let fr = (-degree - FrontR) / n;
         let fl = ( degree - FrontL) / n;
         let rr = (-degree - RearR ) / n;
         let rl = ( degree - RearL ) / n;
-        for (let i = 0; i < n; i++) {
-          Servo(0, Waist  + wt); control.waitMicros(20000);
-        }
+        if(wt != WAIST0)
+          for (let i = 0; i < n; i++) {
+            Servo(0, Waist  + wt); control.waitMicros(20000);
+          }
         Servo(0,  WAIST0); control.waitMicros(20000);
         for (let i = 0; i < n; i++) {
             Servo(1, FrontR + fr); control.waitMicros(20000);
@@ -468,6 +469,20 @@ namespace Robot {
         }
         Servo(2, -degree); control.waitMicros(20000);
         Servo(4, -degree); control.waitMicros(20000);
+
+        wt = ( WAIST0 - Waist ) / n;
+        fr = ( degree - FrontR) / n;
+        rr = ( degree - RearR ) / n;
+        for (let i = 0; i < n; i++) {
+          Servo(0, Waist  + wt); control.waitMicros(20000);
+        }
+        Servo(0,  WAIST0); control.waitMicros(20000);
+        for (let i = 0; i < n; i++) {
+            Servo(1, FrontR + fr); control.waitMicros(20000);
+            Servo(3, RearR  + rr); control.waitMicros(20000);
+        }
+        Servo(1,  degree); control.waitMicros(20000);
+        Servo(3,  degree); control.waitMicros(20000);
     }
 
     //% subcategory="Motor"
