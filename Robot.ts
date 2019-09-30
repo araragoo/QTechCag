@@ -570,7 +570,7 @@ namespace Robot {
         WAIST0 = degree;
     }
 
-    //% subcategory="LED Music"
+    //% subcategory="LED Sonar Music"
     //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
     //% weight=85
     //% channel.min=0 channel.max=2
@@ -584,7 +584,7 @@ namespace Robot {
         setPwm(channel, 0, val);
     }
 
-    //% subcategory="LED Music"
+    //% subcategory="LED Sonar Music"
     //% blockId=setDog block="dog"
     //% weight=85
     export function dog(): void {
@@ -603,7 +603,7 @@ namespace Robot {
         music.rest(music.beat(BeatFraction.Half))
     }
 
-    //% subcategory="LED Music"
+    //% subcategory="LED Sonar Music"
     //% blockId=setCat block="cat"
     //% weight=85
     export function cat(): void {
@@ -620,6 +620,24 @@ namespace Robot {
         music.playTone(523, music.beat(BeatFraction.Half))
         music.playTone(392, music.beat(BeatFraction.Whole))
         music.rest(music.beat(BeatFraction.Half))
+    }
+
+    //% subcategory="LED Sonar Music"
+    //% blockId=setSonar block="Sonar(cm) TrigPin %trig|EchoPin %ech"
+    export function ping(trig: DigitalPin, echo: DigitalPin): number {
+
+        let enableMaxDistance = 500
+
+        pins.setPull(trig, PinPullMode.PullNone);
+        pins.digitalWritePin(trig, 0);
+        control.waitMicros(2);
+        pins.digitalWritePin(trig, 1);
+        control.waitMicros(10);
+        pins.digitalWritePin(trig, 0);
+
+        const d = pins.pulseIn(echo, PulseValue.High, enableMaxDistance * 58);
+
+        PingUnit.Centimeters: return Math.idiv(d, 58); //cm
     }
 
 } 
