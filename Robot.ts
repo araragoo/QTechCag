@@ -621,7 +621,7 @@ namespace Robot {
         music.playTone(392, music.beat(BeatFraction.Whole))
         music.rest(music.beat(BeatFraction.Half))
     }
-/*
+
     //% subcategory="LED Sonar Music"
     //% blockId=setSonar block="Sonar(cm) TrigPin %trig|EchoPin %echo"
     //% weight=85
@@ -639,6 +639,4 @@ namespace Robot {
 
         return Math.idiv(d, 58); //cm
     }
-*/
-
 } 
