@@ -623,8 +623,8 @@ namespace Robot {
     }
 
     //% subcategory="LED Sonar Music"
-    //% blockId=setSonar block="Sonar(cm) TrigPin %trig|EchoPin %ech"
-    export function ping(trig: DigitalPin, echo: DigitalPin): number {
+    //% blockId=setSonar block="Sonar(cm) TrigPin %trig|EchoPin %echo"
+    export function sonar(trig: DigitalPin, echo: DigitalPin): number {
 
         let enableMaxDistance = 500
 
