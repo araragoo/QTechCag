@@ -637,7 +637,7 @@ namespace Robot {
 
         const d = pins.pulseIn(echo, PulseValue.High, enableMaxDistance * 58);
 
-        PingUnit.Centimeters: return Math.idiv(d, 58); //cm
+        return Math.idiv(d, 58); //cm
     }
 
 } 
