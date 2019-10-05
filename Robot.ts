@@ -138,6 +138,14 @@ namespace Robot {
         driveMotor(channel, voltage);
     }
 
+
+    //  subcategory="Robot"
+    //% blockId=setRadioGroup block="radio Group:1<=>83 %n"
+    //% n.min=1 n.max=83
+    export function radioGroup(n: number): void {
+        radio.setGroup(n)
+    }
+
     //% subcategory="Motor"
     //% blockId=setServo block="Servo Waist:0 FrontR:1 FrontL:2 RearR:3 RearL:4 %channel|degree:-90<=>90 %degree"
     //% channel.min=0 channel.max=4
@@ -616,12 +624,5 @@ namespace Robot {
         const d = pins.pulseIn(echo, PulseValue.High, enableMaxDistance * 58);
 
         return Math.idiv(d, 58); //cm
-    }
-
-    //  subcategory="Robot"
-    //% blockId=setRadioGroup block="radio Group:1<=>83 %n"
-    //% n.min=1 n.max=83
-    export function radioGroup(n: number): void {
-        radio.setGroup(n)
     }
 } 
