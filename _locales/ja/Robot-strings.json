@@ -2,7 +2,6 @@
 	"Robot|block": "ロボット",
 	"{id:subcategory}Motor": "モータ",
 	"{id:subcategory}LED Sonar Music": "光・距離センサ・音楽",
-	"Robot.radioGroup|block": "無線グループ：No, 1～83 %n",
 	"Robot.Motor|block": "モータ 右:0 左:1 %channel|後方<=>前方:-100<=>100 %voltage",
 	"Robot.Servo|block": "サーボ 腰：0 右前:1 左前:2 右後:3 左後:4 %channel|角度:-90～90 %degree",
 	"Robot.upRight|block": "直立 時間:0.5～5[s] %time",
@@ -16,5 +15,6 @@
 	"Robot.dog|block": "いぬ:ワン、ワン、ワワーン",
 	"Robot.cat|block": "ねこ:ニャン、ニャン、ニャニャーン",
 	"Robot.LED|block": "光(LED) 赤:0 緑:1 青:2 %channel|電圧:0～100 %voltage",
+	"Robot.radioGroup|block": "無線グループ：No, 1～83 %n",
 	"Robot.sonar|block": "距離センサ(cm) きっかけピン %trig|こだまピン %echo"
 }
