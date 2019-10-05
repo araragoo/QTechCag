@@ -132,7 +132,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setRadio block="radio Group:1<=>83 %n"
-    //% weight=85
     //% n.min=1 n.max=83
     export function radioGroup(n: number): void {
         radio.setGroup(n)
@@ -140,7 +139,6 @@ namespace Robot {
 
     //% subcategory="Motor"
     //% blockId=setMortor block="Motor Right:0 Left:1 %channel|BWD<=>FWD:-100<=>100 %voltage"
-    //% weight=85
     //% channel.min=0 channel.max=1
     //% voltage.min=-100 voltage.max=100
     export function Motor(channel: number,voltage: number): void {
@@ -149,7 +147,6 @@ namespace Robot {
 
     //% subcategory="Motor"
     //% blockId=setServo block="Servo Waist:0 FrontR:1 FrontL:2 RearR:3 RearL:4 %channel|degree:-90<=>90 %degree"
-    //% weight=85
     //% channel.min=0 channel.max=4
     //% degree.min=-90 degree.max=90
     export function Servo(channel: number,degree: number): void {
@@ -178,7 +175,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setUpRight block="Upright time[s]:0.5<=>5 %time""
-    //% weight=85
     //% time.min=0.5 time.max=5
     export function upRight(time: number): void {
         if (!initialized) {
@@ -211,7 +207,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setSitDown block="Sit Down time[s]:0.5<=>5 %time""
-    //% weight=85
     //% time.min=0.5 time.max=5
     export function sitDown(time: number): void {
         if (!initialized) {
@@ -259,7 +254,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setHappiness block="Happiness time[s]:0.5<=>5 %time""
-    //% weight=85
     //% time.min=0.5 time.max=5
     export function happiness(time: number): void {
         if (!initialized) {
@@ -291,7 +285,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkFor block="Walk Forword degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
-    //% weight=85
     //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
     export function walkFor(degree: number, time: number): void {
@@ -357,7 +350,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkRev block="Walk Reverse degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
-    //% weight=85
     //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
     export function walkRev(degree: number, time: number): void {
@@ -423,7 +415,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
-    //% weight=85
     //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
     export function walkRight(degree: number, time: number): void {
@@ -492,7 +483,6 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
-    //% weight=85
     //% degree.min=-60 degree.max=60
     //% time.min=0.5 time.max=5
     export function walkLeft(degree: number, time: number): void {
@@ -561,7 +551,6 @@ namespace Robot {
 
     //% subcategory="Motor"
     //% blockId=setSetWaist block="Waist degree:-60<=>60 %degree"
-    //% weight=85
     //% degree.min=-60 degree.max=60
     export function setWaist(degree: number): void {
         if (!initialized) {
@@ -572,7 +561,6 @@ namespace Robot {
 
     //% subcategory="LED Sonar Music"
     //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
-    //% weight=85
     //% channel.min=0 channel.max=2
     //% voltage.min=0 voltage.max=100
     export function LED(channel: number,voltage: number): void {
@@ -586,7 +574,6 @@ namespace Robot {
 
     //% subcategory="LED Sonar Music"
     //% blockId=setDog block="dog"
-    //% weight=85
     export function dog(): void {
         if (!initialized) {
             initPCA9685();
@@ -605,7 +592,6 @@ namespace Robot {
 
     //% subcategory="LED Sonar Music"
     //% blockId=setCat block="cat"
-    //% weight=85
     export function cat(): void {
         if (!initialized) {
             initPCA9685();
@@ -624,7 +610,6 @@ namespace Robot {
 
     //% subcategory="LED Sonar Music"
     //% blockId=setSonar block="Sonar(cm) TrigPin %trig|EchoPin %echo"
-    //% weight=85
     export function sonar(trig: DigitalPin, echo: DigitalPin): number {
         let enableMaxDistance = 500;
 
