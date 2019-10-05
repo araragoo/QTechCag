@@ -619,7 +619,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setRadio block="radio Group:1<=>83 %n"
+    //% blockId=setRadioGroup block="radio Group:1<=>83 %n"
     //% n.min=1 n.max=83
     export function radioGroup(n: number): void {
         radio.setGroup(n)
