@@ -612,6 +612,7 @@ namespace Robot {
     //% subcategory="LED Sonar Music"
     //% blockId=setSonar block="Sonar(cm) TrigPin %trig|EchoPin %echo"
     export function sonar(trig: DigitalPin, echo: DigitalPin): number {
+/*
         let enableMaxDistance = 500;
 
         pins.setPull(trig, PinPullMode.PullNone);
@@ -621,8 +622,16 @@ namespace Robot {
         control.waitMicros(10);
         pins.digitalWritePin(trig, 0);
 
-        let d = pins.pulseIn(echo, PulseValue.High, enableMaxDistance * 58);
+        const d = pins.pulseIn(echo, PulseValue.High, enableMaxDistance * 58);
 
         return Math.idiv(d, 58); //cm
+*/
+      pins.digitalWritePin(trig, 0)
+      control.waitMicros(2)
+      pins.digitalWritePin(trig, 1)
+      control.waitMicros(20)
+      pins.digitalWritePin(trig, 0)
+      return pins.pulseIn(echo, PulseValue.High) * 153 / 29 / 2 / 100
+
     }
 } 
