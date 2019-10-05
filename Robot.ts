@@ -621,7 +621,7 @@ namespace Robot {
         control.waitMicros(10);
         pins.digitalWritePin(trig, 0);
 
-        const d = pins.pulseIn(echo, PulseValue.High, enableMaxDistance * 58);
+        let d = pins.pulseIn(echo, PulseValue.High, enableMaxDistance * 58);
 
         return Math.idiv(d, 58); //cm
     }
