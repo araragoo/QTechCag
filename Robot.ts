@@ -176,7 +176,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setUpRight block="Upright time[s]:0.5<=>5 %time""
-    //% time.min=0.5 time.max=5
+    //% time.min=0 time.max=5
     export function upRight(time: number): void {
         if (!initialized) {
             initPCA9685();
@@ -208,7 +208,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setSitDown block="Sit Down time[s]:0.5<=>5 %time""
-    //% time.min=0.5 time.max=5
+    //% time.min=0 time.max=5
     export function sitDown(time: number): void {
         if (!initialized) {
             initPCA9685();
@@ -255,7 +255,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setHappiness block="Happiness time[s]:0.5<=>5 %time""
-    //% time.min=0.5 time.max=5
+    //% time.min=0 time.max=5
     export function happiness(time: number): void {
         if (!initialized) {
             initPCA9685();
@@ -287,7 +287,7 @@ namespace Robot {
     //  subcategory="Robot"
     //% blockId=setWalkFor block="Walk Forword degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
-    //% time.min=0.5 time.max=5
+    //% time.min=0 time.max=5
     export function walkFor(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
@@ -352,7 +352,7 @@ namespace Robot {
     //  subcategory="Robot"
     //% blockId=setWalkRev block="Walk Reverse degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
-    //% time.min=0.5 time.max=5
+    //% time.min=0 time.max=5
     export function walkRev(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
@@ -417,7 +417,7 @@ namespace Robot {
     //  subcategory="Robot"
     //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
-    //% time.min=0.5 time.max=5
+    //% time.min=0 time.max=5
     export function walkRight(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
@@ -485,7 +485,7 @@ namespace Robot {
     //  subcategory="Robot"
     //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
-    //% time.min=0.5 time.max=5
+    //% time.min=0 time.max=5
     export function walkLeft(degree: number, time: number): void {
         if (!initialized) {
             initPCA9685();
