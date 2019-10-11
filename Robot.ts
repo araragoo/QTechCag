@@ -405,7 +405,7 @@ namespace Robot {
         Servo(3,  degree); control.waitMicros(20000);
 
         wt = (-WAIST0 - Waist ) / n;
-        rr = (-degree - RearL ) / n;
+        rr = (-degree - RearR ) / n;
         for (let i = 0; i < n; i++) {
             Servo(0, Waist  + wt); control.waitMicros(20000);
             Servo(3, RearR  + rr); control.waitMicros(20000);
