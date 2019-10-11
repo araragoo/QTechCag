@@ -345,7 +345,7 @@ namespace Robot {
             Servo(0, Waist  + wt); control.waitMicros(20000);
             Servo(4, RearL  + rl); control.waitMicros(20000);
         }
-        Servo(0,  WAIST0); control.waitMicros(20000);
+        Servo(0, -WAIST0); control.waitMicros(20000);
         Servo(4,  degree); control.waitMicros(20000);
     }
 
