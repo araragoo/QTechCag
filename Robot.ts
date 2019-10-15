@@ -635,7 +635,7 @@ namespace Robot {
     //% subcategory="LED Distance Music"
     //% blockId=setDistance block="Distance(cm)"
     export function distance(): number {
-      return sonar(echo, DigitalPin.P14, DigitalPin.P15)
+      return sonar(DigitalPin.P14, DigitalPin.P15)
 
     }
 } 
