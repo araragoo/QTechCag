@@ -560,7 +560,7 @@ namespace Robot {
         WAIST0 = degree;
     }
 
-    //% subcategory="LED Sonar Music"
+    //% subcategory="LED Distance Music"
     //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
     //% channel.min=0 channel.max=2
     //% voltage.min=0 voltage.max=100
@@ -573,7 +573,7 @@ namespace Robot {
         setPwm(channel, 0, val);
     }
 
-    //% subcategory="LED Sonar Music"
+    //% subcategory="LED Distance Music"
     //% blockId=setDog block="dog"
     export function dog(): void {
         if (!initialized) {
@@ -591,7 +591,7 @@ namespace Robot {
         music.rest(music.beat(BeatFraction.Half))
     }
 
-    //% subcategory="LED Sonar Music"
+    //% subcategory="LED Distance Music"
     //% blockId=setCat block="cat"
     export function cat(): void {
         if (!initialized) {
@@ -609,9 +609,7 @@ namespace Robot {
         music.rest(music.beat(BeatFraction.Half))
     }
 
-    //% subcategory="LED Sonar Music"
-    //% blockId=setSonar block="Sonar(cm) TrigPin %trig|EchoPin %echo"
-    export function sonar(trig: DigitalPin, echo: DigitalPin): number {
+    function sonar(trig: DigitalPin, echo: DigitalPin): number {
 /*
         let enableMaxDistance = 500;
 
@@ -632,6 +630,12 @@ namespace Robot {
       control.waitMicros(20)
       pins.digitalWritePin(trig, 0)
       return pins.pulseIn(echo, PulseValue.High) * 153 / 29 / 2 / 100
+    }
+
+    //% subcategory="LED Distance Music"
+    //% blockId=setDistance block="Distance(cm)"
+    export function distance(): number {
+      return sonar(echo, DigitalPin.P14, DigitalPin.P15)
 
     }
 } 
