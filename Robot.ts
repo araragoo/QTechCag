@@ -284,7 +284,7 @@ namespace Robot {
         Servo(4, -90); control.waitMicros(20000);
     }
 
-    //  subcategory="Motor"
+    //% subcategory="Motor"
     //% blockId=setWalkFor block="Walk Forword degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
@@ -358,7 +358,7 @@ namespace Robot {
         }
     }
 
-    //  subcategory="Motor"
+    //% subcategory="Motor"
     //% blockId=setWalkRev block="Walk Reverse degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
@@ -432,7 +432,7 @@ namespace Robot {
         }
     }
 
-    //  subcategory="Motor"
+    //% subcategory="Motor"
     //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
@@ -509,7 +509,7 @@ namespace Robot {
         }
     }
 
-    //  subcategory="Motor"
+    //% subcategory="Motor"
     //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
