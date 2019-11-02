@@ -284,7 +284,7 @@ namespace Robot {
         Servo(4, -90); control.waitMicros(20000);
     }
 
-    //  subcategory="Robot"
+    //  subcategory="Motor"
     //% blockId=setWalkFor block="Walk Forword degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
@@ -350,6 +350,15 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
+    //% blockId=setWalkFors block="Walk Forword times:1<=>10 %times"
+    //% times.min=1 times.max=10
+    export function walkFors(times: number): void {
+        for (let i = 0; i < times; i++) {
+            walkFor(0, 0);
+        }
+    }
+
+    //  subcategory="Motor"
     //% blockId=setWalkRev block="Walk Reverse degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
@@ -415,6 +424,15 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
+    //% blockId=setWalkRevs block="Walk Reverse times:1<=>10 %times"
+    //% times.min=1 times.max=10
+    export function walkRevs(times: number): void {
+        for (let i = 0; i < times; i++) {
+            walkRev(0, 0);
+        }
+    }
+
+    //  subcategory="Motor"
     //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
@@ -483,6 +501,15 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
+    //% blockId=setWalkRights block="Walk Right times[s]:1<=>10 %times"
+    //% times.min=1 times.max=10
+    export function walkRights(times: number): void {
+        for (let i = 0; i < times; i++) {
+            walkRight(0, 0);
+        }
+    }
+
+    //  subcategory="Motor"
     //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
     //% time.min=0 time.max=5
@@ -548,6 +575,15 @@ namespace Robot {
         }
         Servo(2,  degree); control.waitMicros(20000);
         Servo(4,       0); control.waitMicros(20000);
+    }
+
+    //  subcategory="Robot"
+    //% blockId=setWalkLefts block="Walk Left times[s]:1<=>10 %times"
+    //% times.min=1 times.max=10
+    export function walkLefts(times: number): void {
+        for (let i = 0; i < times; i++) {
+            walkLeft(0, 0);
+        }
     }
 
     //% subcategory="Motor"
