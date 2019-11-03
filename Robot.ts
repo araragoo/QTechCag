@@ -132,13 +132,6 @@ namespace Robot {
         pins.i2cWriteBuffer(PCA9685_ADDRESS, buf);
     }
 
-    //% subcategory="Motor"
-    //% blockId=setMortor block="Motor Right:0 Left:1 %channel|BWD<=>FWD:-100<=>100 %voltage"
-    //% channel.min=0 channel.max=1
-    //% voltage.min=-100 voltage.max=100
-    export function Motor(channel: number,voltage: number): void {
-        driveMotor(channel, voltage);
-    }
 
 
     //  subcategory="Robot"
@@ -146,6 +139,16 @@ namespace Robot {
     //% n.min=1 n.max=83 n.defl=1
     export function radioGroup(n: number): void {
         radio.setGroup(n)
+    }
+
+
+
+    //% subcategory="Motor"
+    //% blockId=setMortor block="Motor Right:0 Left:1 %channel|BWD<=>FWD:-100<=>100 %voltage"
+    //% channel.min=0 channel.max=1
+    //% voltage.min=-100 voltage.max=100
+    export function Motor(channel: number,voltage: number): void {
+        driveMotor(channel, voltage);
     }
 
     //% subcategory="Motor"
@@ -176,7 +179,7 @@ namespace Robot {
         else if(channel == 4) RearL  = degree;
     }
 
-    //  subcategory="Robot"
+    //% subcategory="Motor"
     //% blockId=setUpRight block="Upright time[s]:0.5<=>5 %time"
     //% time.min=0 time.max=5
     export function upRight(time: number): void {
@@ -209,6 +212,13 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
+    //% blockId=setUpRights block="Uprigh"
+    export function upRights(): void {
+        upRight(0);
+    }
+
+
+    //% subcategory="Motor"
     //% blockId=setSitDown block="Sit Down time[s]:0.5<=>5 %time"
     //% time.min=0 time.max=5
     export function sitDown(time: number): void {
@@ -256,6 +266,13 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
+    //% blockId=setSitDowns block="Sit Down"
+    export function sitDowns(): void {
+        sitDown(0);
+    }
+
+
+    //% subcategory="Motor"
     //% blockId=setHappiness block="Happiness time[s]:0.5<=>5 %time"
     //% time.min=0 time.max=5
     export function happiness(time: number): void {
@@ -285,6 +302,13 @@ namespace Robot {
         Servo(3, -90); control.waitMicros(20000);
         Servo(4, -90); control.waitMicros(20000);
     }
+
+    //  subcategory="Robot"
+    //% blockId=setHappinesses block="Happiness"
+    export function happinesses(): void {
+        happiness(0);
+    }
+
 
     //% subcategory="Motor"
     //% blockId=setWalkFor block="Walk Forword degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
@@ -360,6 +384,7 @@ namespace Robot {
         }
     }
 
+
     //% subcategory="Motor"
     //% blockId=setWalkRev block="Walk Reverse degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
@@ -433,6 +458,7 @@ namespace Robot {
             walkRev(0, 0);
         }
     }
+
 
     //% subcategory="Motor"
     //% blockId=setWalkRight block="Walk Right degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
@@ -511,6 +537,7 @@ namespace Robot {
         }
     }
 
+
     //% subcategory="Motor"
     //% blockId=setWalkLeft block="Walk Left degree:-60<=>60 %degree|time[s]:0.5<=>5 %time"
     //% degree.min=-60 degree.max=60
@@ -588,6 +615,7 @@ namespace Robot {
         }
     }
 
+
     //% subcategory="Motor"
     //% blockId=setSetWaist block="Waist degree:-60<=>60 %degree"
     //% degree.min=-60 degree.max=60 degree.defl=15
@@ -597,6 +625,8 @@ namespace Robot {
         }
         WAIST0 = degree;
     }
+
+
 
     //% subcategory="LED Distance Music"
     //% blockId=setLED block="LED Red:0 Green:1 Blue:2 %channel|voltage:0<=>100 %voltage"
