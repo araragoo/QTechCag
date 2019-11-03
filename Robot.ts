@@ -425,6 +425,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkRevs block="Walk Reverse times:1<=>10 %times"
+    //% times=1
     //% times.min=1 times.max=10
     export function walkRevs(times: number): void {
         for (let i = 0; i < times; i++) {
