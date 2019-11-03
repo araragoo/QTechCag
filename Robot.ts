@@ -212,7 +212,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setUpRights block="Uprigh"
+    //% blockId=setUpRights block="Uprigh (1sec)"
     export function upRights(): void {
         upRight(0);
     }
@@ -266,7 +266,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setSitDowns block="Sit Down"
+    //% blockId=setSitDowns block="Sit Down (1sec)"
     export function sitDowns(): void {
         sitDown(0);
     }
@@ -304,7 +304,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setHappinesses block="Happiness"
+    //% blockId=setHappinesses block="Happiness (1sec)"
     export function happinesses(): void {
         happiness(0);
     }
@@ -376,7 +376,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkFors block="Walk Forword times:1<=>10 %times"
+    //% blockId=setWalkFors block="Walk Forword (2sec) times:1<=>10 %times"
     //% times.min=1 times.max=10 times.defl=1
     export function walkFors(times: number): void {
         for (let i = 0; i < times; i++) {
@@ -451,7 +451,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkRevs block="Walk Reverse times:1<=>10 %times"
+    //% blockId=setWalkRevs block="Walk Reverse (2sec) times:1<=>10 %times"
     //% times.min=1 times.max=10 times.defl=1
     export function walkRevs(times: number): void {
         for (let i = 0; i < times; i++) {
@@ -529,7 +529,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkRights block="Walk Right times[s]:1<=>10 %times"
+    //% blockId=setWalkRights block="Walk Right (2sec) times[s]:1<=>10 %times"
     //% times.min=1 times.max=10 times.defl=1
     export function walkRights(times: number): void {
         for (let i = 0; i < times; i++) {
@@ -607,7 +607,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setWalkLefts block="Walk Left times[s]:1<=>10 %times"
+    //% blockId=setWalkLefts block="Walk Left (2sec) times[s]:1<=>10 %times"
     //% times.min=1 times.max=10 times.defl=1
     export function walkLefts(times: number): void {
         for (let i = 0; i < times; i++) {
