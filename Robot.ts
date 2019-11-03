@@ -175,7 +175,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setUpRight block="Upright time[s]:0.5<=>5 %time""
+    //% blockId=setUpRight block="Upright time[s]:0.5<=>5 %time"
     //% time.min=0 time.max=5
     export function upRight(time: number): void {
         if (!initialized) {
@@ -207,7 +207,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setSitDown block="Sit Down time[s]:0.5<=>5 %time""
+    //% blockId=setSitDown block="Sit Down time[s]:0.5<=>5 %time"
     //% time.min=0 time.max=5
     export function sitDown(time: number): void {
         if (!initialized) {
@@ -254,7 +254,7 @@ namespace Robot {
     }
 
     //  subcategory="Robot"
-    //% blockId=setHappiness block="Happiness time[s]:0.5<=>5 %time""
+    //% blockId=setHappiness block="Happiness time[s]:0.5<=>5 %time"
     //% time.min=0 time.max=5
     export function happiness(time: number): void {
         if (!initialized) {
@@ -579,6 +579,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkLefts block="Walk Left times[s]:1<=>10 %times"
+    //% times=1
     //% times.min=1 times.max=10
     export function walkLefts(times: number): void {
         for (let i = 0; i < times; i++) {
