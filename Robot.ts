@@ -33,14 +33,16 @@ namespace Robot {
     const PWM_MAX_B     = 4095            //4095lsb
     const PWM_MIN_B     = 0               //   0lsb
 
-    const DEGREE_MIN = -90 //-90deg.
-    const DEGREE_MAX =  90 // 90deg.
-    const LED_MIN    =   0 //  0V
-    const LED_MAX    = 100 //3.3V
+    const DEGREE_MIN   = -90 //-90deg.
+    const DEGREE_MAX   =  90 // 90deg.
+    const DEGREE_WAIST =  15 // 15deg.
+    const LED_MIN      =   0 //  0V
+    const LED_MAX      = 100 //3.3V
+
 
     let initialized = false
 
-    let WAIST0 = 15;
+    let WAIST0 = DEGREE_WAIST;
     let Waist  = 0;
     let FrontR = 0;
     let FrontL = 0;
@@ -588,7 +590,7 @@ namespace Robot {
 
     //% subcategory="Motor"
     //% blockId=setSetWaist block="Waist degree:-60<=>60 %degree"
-    //% degree.min=-60 degree.max=60 degree.defl=WAIST0
+    //% degree.min=-60 degree.max=60 degree.defl=DEGREE_WAIST
     export function setWaist(degree: number): void {
         if (!initialized) {
             initPCA9685();
