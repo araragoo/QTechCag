@@ -579,8 +579,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkLefts block="Walk Left times[s]:1<=>10 %times"
-    //% times=1
-    //% times.min=1 times.max=10
+    //% times.min=1 times.max=10 times.def =1
     export function walkLefts(times: number): void {
         for (let i = 0; i < times; i++) {
             walkLeft(0, 0);
