@@ -141,7 +141,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setRadioGroup block="radio Group:1<=>83 %n"
-    //% n.min=1 n.max=83
+    //% n.min=1 n.max=83 n.defl=1
     export function radioGroup(n: number): void {
         radio.setGroup(n)
     }
@@ -351,7 +351,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkFors block="Walk Forword times:1<=>10 %times"
-    //% times.min=1 times.max=10
+    //% times.min=1 times.max=10 times.defl=1
     export function walkFors(times: number): void {
         for (let i = 0; i < times; i++) {
             walkFor(0, 0);
@@ -425,8 +425,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkRevs block="Walk Reverse times:1<=>10 %times"
-    //% times=1
-    //% times.min=1 times.max=10
+    //% times.min=1 times.max=10 times.defl=1
     export function walkRevs(times: number): void {
         for (let i = 0; i < times; i++) {
             walkRev(0, 0);
@@ -580,7 +579,7 @@ namespace Robot {
 
     //  subcategory="Robot"
     //% blockId=setWalkLefts block="Walk Left times[s]:1<=>10 %times"
-    //% times.min=1 times.max=10 times.def =1
+    //% times.min=1 times.max=10 times.defl=1
     export function walkLefts(times: number): void {
         for (let i = 0; i < times; i++) {
             walkLeft(0, 0);
