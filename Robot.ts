@@ -588,7 +588,7 @@ namespace Robot {
 
     //% subcategory="Motor"
     //% blockId=setSetWaist block="Waist degree:-60<=>60 %degree"
-    //% degree.min=-60 degree.max=60
+    //% degree.min=-60 degree.max=60 degree.defl=WAIST0
     export function setWaist(degree: number): void {
         if (!initialized) {
             initPCA9685();
