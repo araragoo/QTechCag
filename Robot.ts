@@ -657,14 +657,6 @@ namespace Robot {
         music.playTone(440, music.beat(BeatFraction.Half))
         music.playTone(349, music.beat(BeatFraction.Whole))
         music.rest(music.beat(BeatFraction.Half))
-    }
-
-    //% subcategory="LED Distance Music"
-    //% blockId=setCat block="cat"
-    export function cat(): void {
-        if (!initialized) {
-            initPCA9685();
-        }
         music.playTone(523, music.beat(BeatFraction.Half))
         music.playTone(440, music.beat(BeatFraction.Half))
         music.playTone(523, music.beat(BeatFraction.Half))
@@ -675,6 +667,26 @@ namespace Robot {
         music.playTone(523, music.beat(BeatFraction.Half))
         music.playTone(392, music.beat(BeatFraction.Whole))
         music.rest(music.beat(BeatFraction.Half))
+    }
+
+    //% subcategory="LED Distance Music"
+    //% blockId=setCat block="cat"
+    export function cat(): void {
+        if (!initialized) {
+            initPCA9685();
+        }
+        music.playTone(311, music.beat(BeatFraction.Sixteenth))
+        music.playTone(277, music.beat(BeatFraction.Sixteenth))
+        music.playTone(185, music.beat(BeatFraction.Eighth))
+        music.playTone(370, music.beat(BeatFraction.Eighth))
+        music.playTone(233, music.beat(BeatFraction.Eighth))
+        music.rest(music.beat(BeatFraction.Eighth))
+        music.playTone(311, music.beat(BeatFraction.Sixteenth))
+        music.playTone(277, music.beat(BeatFraction.Sixteenth))
+        music.playTone(185, music.beat(BeatFraction.Eighth))
+        music.playTone(233, music.beat(BeatFraction.Eighth))
+        music.playTone(370, music.beat(BeatFraction.Eighth))
+        music.rest(music.beat(BeatFraction.Eighth))
     }
 
     function sonar(trig: DigitalPin, echo: DigitalPin): number {
