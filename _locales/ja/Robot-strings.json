@@ -23,5 +23,5 @@
 	"Robot.dog|block": "いぬ:ワン、ワン、ワワーン",
 	"Robot.cat|block": "ねこ:ニャン、ニャン、ニャニャーン",
 	"Robot.LED|block": "光(LED) 赤:0 緑:1 青:2 %channel|電圧:0～100 %voltage",
-	"Robot.distance|block": "距離センサ(cm)"
+	"Robot.distance|block": "距離（cm）"
 }
