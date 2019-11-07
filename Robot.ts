@@ -675,18 +675,18 @@ namespace Robot {
         if (!initialized) {
             initPCA9685();
         }
-        music.playTone(311, music.beat(BeatFraction.Sixteenth))
-        music.playTone(277, music.beat(BeatFraction.Sixteenth))
-        music.playTone(185, music.beat(BeatFraction.Eighth))
-        music.playTone(370, music.beat(BeatFraction.Eighth))
-        music.playTone(233, music.beat(BeatFraction.Eighth))
-        music.rest(music.beat(BeatFraction.Eighth))
-        music.playTone(311, music.beat(BeatFraction.Sixteenth))
-        music.playTone(277, music.beat(BeatFraction.Sixteenth))
-        music.playTone(185, music.beat(BeatFraction.Eighth))
-        music.playTone(233, music.beat(BeatFraction.Eighth))
-        music.playTone(370, music.beat(BeatFraction.Eighth))
-        music.rest(music.beat(BeatFraction.Eighth))
+        music.playTone(311, music.beat(BeatFraction.Half))
+        music.playTone(277, music.beat(BeatFraction.Half))
+        music.playTone(185, music.beat(BeatFraction.Whole))
+        music.playTone(233, music.beat(BeatFraction.Whole))
+        music.playTone(233, music.beat(BeatFraction.Whole))
+        music.rest(music.beat(BeatFraction.Half))
+        music.playTone(311, music.beat(BeatFraction.Half))
+        music.playTone(277, music.beat(BeatFraction.Half))
+        music.playTone(185, music.beat(BeatFraction.Whole))
+        music.playTone(370, music.beat(BeatFraction.Whole))
+        music.playTone(370, music.beat(BeatFraction.Whole))
+        music.rest(music.beat(BeatFraction.Half))
     }
 
     function sonar(trig: DigitalPin, echo: DigitalPin): number {
